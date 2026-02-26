@@ -44,7 +44,7 @@ public class SchoolM {
         instructor.displayRoster();
 
         // Create announcement
-        instructor.createAnnouncement("Midterm exam is Friday. Study hard!");
+        instructor.createAnnouncement("Midterm exam is Friday. Study hard!!");
 
     }
 }
