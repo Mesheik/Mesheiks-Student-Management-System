@@ -1,0 +1,62 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Person {
+ -id: int
+  -firstName: String
+  -lastName: String
+  -email: String
+
+  +Person(id: int, firstName: String, lastName: String, email: String)
+
+  {abstract} +getSummary(): String
+
+  +getId(): int
+  +getFirstName(): String
+  +getLastName(): String
+  +getEmail(): String
+}
+
+class Student {
+  -gradeLevel: int
+  -gpa: double
+
+  +Student(id: int, firstName: String, lastName: String, email: String,
+           gradeLevel: int, gpa: double)
+
+  +getSummary(): String
+  +isOnHonorRoll(): boolean
+
+  +getGradeLevel(): int
+  +getGpa(): double
+
+}
+
+class Instructor {
+  -department: String
+  -assignedStudents: List<Student>
+
+  +Instructor(id: int, firstName: String, lastName: String, email: String,
+              department: String)
+
+  +getSummary(): String
+  +createAnnouncement(message: String): void
+
+  +addStudent(student: Student): void
+  +printRoster(): void
+
+  +getDepartment(): String
+}
+
+class Main {
+  +main(args: String[]): void
+}
+
+Person <|-- Student
+Person <|-- Instructor
+
+Instructor "1" o-- "*" Student : assignedStudents
+Main --> Person : List<Person>
+
+
+@enduml
